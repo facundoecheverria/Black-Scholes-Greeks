@@ -156,6 +156,7 @@ def main():
          "Vega": black_scholes_vega(S, K=ks, T=(T / 252), r=(r / 100), sigma=(sigma / 100)),
          "Rho": bs_rho(S, K=ks, T=(T / 252), sigma=(sigma / 100), r=(r / 100), q=(r / 100), type=option_type)})
 
+    df['Theta'].clip(upper=0, inplace=True)
     plt.style.use('ggplot')
 
     fig, ((ax1, ax2),
